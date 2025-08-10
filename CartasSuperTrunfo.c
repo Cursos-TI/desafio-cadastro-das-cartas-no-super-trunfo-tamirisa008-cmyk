@@ -1,18 +1,20 @@
 #include <stdio.h>
 #include <string.h>
 
+// Definição da estrutura Carta
 typedef struct {
-    char estado;
-    char codigo[4];
-    char nomecidade[50];
-    int populacao;
-    float area;
-    float pib; // PIB em bilhões
-    int pontosTuristicos;
+    char estado;               // Uma letra A-H
+    char codigo[4];            // Código da carta (ex: A01)
+    char nomecidade[50];       // Nome da cidade
+    int populacao;             // População total
+    float area;                // Área em km²
+    float pib;                 // PIB em bilhões
+    int pontosTuristicos;      // Número de pontos turísticos
     float densidadePopulacional;
     float pibPerCapita;
 } Carta;
 
+// Função para limpar buffer do teclado após scanf
 void limparBuffer() {
     int c;
     while ((c = getchar()) != '\n' && c != EOF) {}
@@ -81,14 +83,14 @@ int main() {
     scanf("%d", &carta2.pontosTuristicos);
     limparBuffer();
 
-    // Cálculos
-    carta1.densidadePopulacional = carta1.populacao / carta1.area;
-    carta1.pibPerCapita = (carta1.pib * 1000000000) / carta1.populacao;
+    // Cálculos com casts explícitos
+    carta1.densidadePopulacional = (float)carta1.populacao / carta1.area;
+    carta1.pibPerCapita = (carta1.pib * 1000000000.0f) / (float)carta1.populacao;
 
-    carta2.densidadePopulacional = carta2.populacao / carta2.area;
-    carta2.pibPerCapita = (carta2.pib * 1000000000) / carta2.populacao;
+    carta2.densidadePopulacional = (float)carta2.populacao / carta2.area;
+    carta2.pibPerCapita = (carta2.pib * 1000000000.0f) / (float)carta2.populacao;
 
-    // Exibição dos resultados
+    // Exibição
     printf("\n\n=== Cartas Cadastradas ===\n");
 
     printf("\n--- Carta 1 ---\n");
