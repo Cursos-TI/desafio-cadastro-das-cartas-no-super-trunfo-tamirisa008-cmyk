@@ -59,15 +59,9 @@ int main() {
     scanf("%lu", &carta1.populacao);
     limparBuffer();
 
-    // Validação da área para carta 1
-    do {
-        printf("Área (em km²) - maior que 0: ");
-        scanf("%f", &carta1.area);
-        limparBuffer();
-        if (carta1.area <= 0) {
-            printf("Erro: A área deve ser maior que zero. Tente novamente.\n");
-        }
-    } while (carta1.area <= 0);
+    printf("Área (em km²): ");
+    scanf("%f", &carta1.area);
+    limparBuffer();
 
     printf("PIB (em bilhões): ");
     scanf("%f", &carta1.pib);
@@ -95,15 +89,9 @@ int main() {
     scanf("%lu", &carta2.populacao);
     limparBuffer();
 
-    // Validação da área para carta 2
-    do {
-        printf("Área (em km²) - maior que 0: ");
-        scanf("%f", &carta2.area);
-        limparBuffer();
-        if (carta2.area <= 0) {
-            printf("Erro: A área deve ser maior que zero. Tente novamente.\n");
-        }
-    } while (carta2.area <= 0);
+    printf("Área (em km²): ");
+    scanf("%f", &carta2.area);
+    limparBuffer();
 
     printf("PIB (em bilhões): ");
     scanf("%f", &carta2.pib);
@@ -159,15 +147,57 @@ int main() {
     int vPIBperCapita = (carta1.pibPerCapita > carta2.pibPerCapita) ? 1 : 0;
     int vSuperPoder = (superPoder1 > superPoder2) ? 1 : 0;
 
-    // Exibir resultados das comparações
-    printf("\nComparação de Cartas (1 = Carta 1 venceu, 0 = Carta 2 venceu):\n");
-    printf("População: %d\n", vPopulacao);
-    printf("Área: %d\n", vArea);
-    printf("PIB: %d\n", vPIB);
-    printf("Pontos Turísticos: %d\n", vPontos);
-    printf("Densidade Populacional: %d\n", vDensidade);
-    printf("PIB per Capita: %d\n", vPIBperCapita);
-    printf("Super Poder: %d\n", vSuperPoder);
+    // Exibir resultados das comparações com mensagens amigáveis
+    printf("\nComparação de Cartas:\n");
+
+    printf("População: ");
+    if (vPopulacao == 1) {
+        printf("Carta 1 venceu.\n");
+    } else {
+        printf("Carta 2 venceu.\n");
+    }
+
+    printf("Área: ");
+    if (vArea == 1) {
+        printf("Carta 1 venceu.\n");
+    } else {
+        printf("Carta 2 venceu.\n");
+    }
+
+    printf("PIB: ");
+    if (vPIB == 1) {
+        printf("Carta 1 venceu.\n");
+    } else {
+        printf("Carta 2 venceu.\n");
+    }
+
+    printf("Pontos Turísticos: ");
+    if (vPontos == 1) {
+        printf("Carta 1 venceu.\n");
+    } else {
+        printf("Carta 2 venceu.\n");
+    }
+
+    printf("Densidade Populacional: ");
+    if (vDensidade == 1) {
+        printf("Carta 1 venceu.\n");
+    } else {
+        printf("Carta 2 venceu.\n");
+    }
+
+    printf("PIB per Capita: ");
+    if (vPIBperCapita == 1) {
+        printf("Carta 1 venceu.\n");
+    } else {
+        printf("Carta 2 venceu.\n");
+    }
+
+    printf("Super Poder: ");
+    if (vSuperPoder == 1) {
+        printf("Carta 1 venceu.\n");
+    } else {
+        printf("Carta 2 venceu.\n");
+    }
 
     return 0;
 }
